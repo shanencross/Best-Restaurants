@@ -1,0 +1,18 @@
+<h1>Here are all of the best restaurants!</h1>
+
+@using BestRestaurants.Models;
+
+@if (Model.Count == 0)
+{
+  <p>This town ain't big enough for a restaurant! You should try adding one, pard'ner.</p>
+}
+
+<ul>
+  @foreach (Restaurant restaurant in Model)
+  {
+    <li>@restaurant.Name | @restaurant.Cuisine.Name</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Add new restaurant", "Create", "Restaurant")</p>
